@@ -21,3 +21,20 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+const sortedRobots = robots.map(x => {
+  let checkIf = knownDecepticons.includes(x.name)
+  
+  return Object.assign({}, x, {
+    alliance: checkIf ? 'autobot' : 'decepticon'
+  })
+}) 
+
+const coloredZebraStripes = zebraStripes.map((x, i) => {
+  let evenIf = (i % 2 === 0)
+debugger
+
+  return Object.assign({}, x, {
+    color: evenIf  ? 'white' : 'black'
+  })
+})
